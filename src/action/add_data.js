@@ -4,7 +4,7 @@ export function addDataTxt(text) {
         text: text
     }
 }
-
+/*
 export function addSecondTxt(text) {
     console.log(text);
     return {
@@ -12,3 +12,4 @@ export function addSecondTxt(text) {
         text
     }
 }
+*/

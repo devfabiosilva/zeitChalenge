@@ -1,3 +1,4 @@
+//variavel global para adicionar os personagens da Marvel salvo pelo usuário
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import * as addData from './action/add_data';
@@ -10,21 +11,15 @@ import { connect } from 'react-redux';
                     }
 */
 class AddData extends Component {
-/*
-    constructor(props) {
-        super(props);
-        console.log(props);
 
-    }
-*/
     state = {
         newTodoText: ""
     }
 
     addTodo = () => {
 
-        this.props.addSecondTxt(this.state.newTodoText); //addDataTxt(this.state.newTodoText);
-        this.setState({ newTodoText:'' });  
+        this.props.addDataTxt(this.state.newTodoText);
+        this.setState({ newTodoText:'' });
 
     }
 
@@ -32,7 +27,6 @@ class AddData extends Component {
         return (
             <div>
                 <ul>
-                    <li>teste</li>
                     {
                         this.props.parsedata.map(data => (
                         <li key={data.id}>{data.text}</li>

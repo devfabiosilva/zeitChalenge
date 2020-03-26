@@ -16,13 +16,14 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 //Provider atualiza todos os estados no componets
 import store from './store';
-import MarvelData from './MarvelData';
+//import MarvelData from './MarvelData';
+import Routers from './routers';
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-          <MarvelData />
+        <Routers />
       </Provider>
     );
   }
