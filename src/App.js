@@ -20,6 +20,9 @@ import store from './store';
 import Routers from './routers';
 
 class App extends Component {
+  componentDidMount = () => {
+    //console.log(allHeroes('0'));
+  }
   render() {
     return (
       <Provider store={store}>

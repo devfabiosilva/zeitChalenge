@@ -4,6 +4,14 @@ export function addDataTxt(text) {
         text: text
     }
 }
+
+export function updateLink(text) {
+    return {
+        type: "ADD_LINK",
+        text
+    }
+}
+
 /*
 export function addSecondTxt(text) {
     console.log(text);

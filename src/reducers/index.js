@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import parsedata from './parsedata';
+import { parsedata, addlink }from './parsedata';
 
-export default combineReducers({parsedata});
+export default combineReducers({parsedata, addlink});

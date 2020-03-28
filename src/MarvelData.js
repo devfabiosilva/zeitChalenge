@@ -3,23 +3,27 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import * as addData from './action/add_data';
 import { connect } from 'react-redux';
-/*
-                    {
-                        this.props.todos.map(todo => (
-                        <li key={todo.id}>{todo.text}</li>
-                        ))
-                    }
-*/
-class AddData extends Component {
+import store from './store';
+import { allHeroes } from './services/api';
+
+class MarvelData extends Component {
 
     state = {
-        newTodoText: ""
+        newTodoText: "",
+        link: ""
+    }
+
+    componentDidMount = async () => {
+        const res = await allHeroes('0');
+        console.log(res);
+        this.props.updateLink(res.link);
     }
 
     addTodo = () => {
 
         this.props.addDataTxt(this.state.newTodoText);
         this.setState({ newTodoText:'' });
+        console.log(store.getState());
 
     }
 
@@ -28,10 +32,13 @@ class AddData extends Component {
             <div>
                 <ul>
                     {
-                        this.props.parsedata.map(data => (
-                        <li key={data.id}>{data.text}</li>
+                        this.props.parsedatx.map(data => (
+                            <li key={data.id}>{data.text}</li>
                         ))
                     }
+                </ul>
+                <ul>
+                    <li>{this.props.addlinkx.link?this.props.addlinkx.link:null}</li>
                 </ul>
                 <input
                     type="text" 
@@ -46,11 +53,12 @@ class AddData extends Component {
 }
 
 const mapStateToProps = state => ({
-    parsedata: state.parsedata,
+    parsedatx: state.parsedata,
+    addlinkx: state.addlink
 });
 
-const mapDispatchToProps = dispatch => 
+const mapDispatchToProps = dispatch =>
     bindActionCreators(addData, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddData);
+export default connect(mapStateToProps, mapDispatchToProps)(MarvelData);
 
